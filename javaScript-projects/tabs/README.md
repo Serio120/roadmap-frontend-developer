@@ -1,6 +1,6 @@
 # Simple Tabs Project
 
-## URL Project
+## URL
 https://roadmap.sh/projects/simple-tabs
 
 ## Description
