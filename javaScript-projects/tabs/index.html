@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Tabs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 0;
+      font-size: 18px;
+      color: #999;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab-btn.active {
+      color: #000;
+      font-weight: bold;
+      border-bottom: 3px solid #000;
+    }
+
+    .tab-content {
+      display: none;
+      background: #000;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: 24px;
+      margin: 30px 0;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .description {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .footer-text {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab1">First Tab</button>
+      <button class="tab-btn" data-tab="tab2">Second Tab</button>
+      <button class="tab-btn" data-tab="tab3">Third Tab</button>
+      <button class="tab-btn" data-tab="tab4">Fourth Tab</button>
+    </div>
+
+    <p class="description">
+      Clicking each tab should hide the content of the other tab and show the content of the clicked tab.
+      By default, the first tab is enabled.
+    </p>
+
+    <div id="tab1" class="tab-content active">First Tab content to be displayed here.</div>
+    <div id="tab2" class="tab-content">Second Tab content to be displayed here.</div>
+    <div id="tab3" class="tab-content">Third Tab content to be displayed here.</div>
+    <div id="tab4" class="tab-content">Fourth Tab content to be displayed here.</div>
+
+    <p class="footer-text">
+      Add some dummy content or just add a simple text showing the tab content.
+    </p>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        contents.forEach(content => content.classList.remove("active"));
+
+        button.classList.add("active");
+        document.getElementById(button.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
