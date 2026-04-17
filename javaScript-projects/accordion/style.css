@@ -1,0 +1,72 @@
+:root {
+  --bg-black: #000000;
+  --text-white: #ffffff;
+  --border-gray: #e5e7eb;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  padding: 40px;
+}
+
+.accordion-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Header Styling */
+.accordion-header {
+  width: 100%;
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  padding: 18px 24px;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+/* Icon rotation */
+.accordion-item.active .icon {
+  transform: rotate(180deg);
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+/* Content Panel - Hidden by default */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  border: 1px solid transparent;
+  border-radius: 0 0 12px 12px;
+  margin-top: -5px; /* Slight overlap for seamless look */
+}
+
+/* Content Interior */
+.content-inner {
+  padding: 20px 24px;
+  border: 2px solid var(--bg-black);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Active State Styles */
+.accordion-item.active .accordion-header {
+  border-radius: 12px 12px 0 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 200px; /* Adjust based on content size */
+}
